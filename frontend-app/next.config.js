@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  env: {
-    NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
-    NEXT_PUBLIC_BETTER_AUTH_URL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL,
-  },
+  serverExternalPackages: ['better-auth'],
+  /* Environment variables are now handled automatically from .env files,
+     no need for the env property which is deprecated */
 }
 
 module.exports = nextConfig
