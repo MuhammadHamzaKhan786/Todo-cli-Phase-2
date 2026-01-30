@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { apiClient } from '@/lib/api';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import Input from '@/components/ui/Input';
 import TaskCard from '@/components/TaskCard';
 import StatsCard from '@/components/StatsCard';
