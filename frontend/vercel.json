@@ -8,11 +8,5 @@
         "buildCommand": "next build"
       }
     }
-  ],
-  "functions": {
-    "src/**/*": {
-      "memory": 1024,
-      "maxDuration": 60
-    }
-  }
+  ]
 }
