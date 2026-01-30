@@ -208,3 +208,48 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Project-Specific Requirements
+
+### Technology Stack
+- **Frontend**: Next.js 16+ (App Router)
+- **Backend**: Python FastAPI
+- **ORM**: SQLModel
+- **Database**: Neon Serverless PostgreSQL
+- **Authentication**: Better Auth with JWT tokens
+- **Spec-Driven**: Claude Code + Spec-Kit Plus
+
+### Development Approach
+Use the Agentic Dev Stack workflow:
+1. Write spec
+2. Generate plan
+3. Break into tasks
+4. Implement via Claude Code
+
+No manual coding allowed. All development must be done through the specified agents.
+
+### Agent Usage Guidelines
+- **Authentication**: Use Auth Agent for all authentication-related tasks (signup, signin, JWT handling, Better Auth integration)
+- **Frontend Development**: Use Frontend Agent for Next.js frontend work (pages, components, routing, UI)
+- **Database Operations**: Use DB Agent for Neon PostgreSQL database design, schema management, and operations
+- **Backend Development**: Use Backend Agent for FastAPI API endpoints, business logic, and integration
+
+### Basic Level Functionality
+Objective: Using Claude Code and Spec-Kit Plus transform the console app into a modern multi-user web application with persistent storage.
+
+Requirements:
+- Implement all 5 Basic Level features as a web application
+- Create RESTful API endpoints
+- Build responsive frontend interface
+- Store data in Neon Serverless PostgreSQL database
+- Authentication – Implement user signup/signin using Better Auth
+
+### Authentication Flow
+Better Auth can be configured to issue JWT (JSON Web Token) tokens when users log in. These tokens are self-contained credentials that include user information and can be verified by any service that knows the secret key.
+
+How It Works:
+1. User logs in on Frontend → Better Auth creates a session and issues a JWT token
+2. Frontend makes API call → Includes the JWT token in the Authorization: Bearer <token> header
+3. Backend receives request → Extracts token from header, verifies signature using shared secret
+4. Backend identifies user → Decodes token to get user ID, email, etc. and matches it with the user ID in the URL
+5. Backend filters data → Returns only tasks belonging to that user

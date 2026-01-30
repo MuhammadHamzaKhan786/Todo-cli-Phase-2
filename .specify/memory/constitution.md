@@ -1,55 +1,65 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# AI-assisted Todo Full-Stack Web Application Constitution
+
+<!-- Sync Impact Report
+Version change: 1.0.0 (new constitution)
+Added sections: Core Principles, Technology Stack, Development Workflow, Security Standards, Governance
+Templates requiring updates: ✅ plan-template.md, ✅ spec-template.md, ✅ tasks-template.md
+Follow-up TODOs: None
+-->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-Driven Development
+All implementation must derive strictly from written specifications. No manual coding allowed - all development must follow the Spec → Plan → Tasks → Code workflow using the Agentic Dev Stack.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Agentic Workflow Purity
+All development tasks must be executed through specialized agents (Auth Agent, Frontend Agent, Backend Agent, DB Agent). Agents must prioritize MCP tools and CLI commands for all operations.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Security by Design
+Authentication, authorization, and user isolation must be enforced at every layer. JWT tokens are required for all API access. User data isolation is mandatory and enforced server-side.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Deterministic Behavior
+API responses and state transitions must be predictable and consistent. RESTful API design conventions must be followed strictly.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Production Realism
+Development must use real databases, real authentication, and real deployment constraints. Environment configuration must be explicit and reproducible.
 
-### [PRINCIPLE_6_NAME]
+### VI. Decoupled Architecture
+Frontend and backend must remain independent services communicating only through defined RESTful APIs. No direct database access from frontend.
 
+## Technology Stack
 
-[PRINCIPLE__DESCRIPTION]
+**Frontend**: Next.js 16+ (App Router) - Responsive UI components, client-side routing, and API integration
+**Backend**: Python FastAPI - RESTful API endpoints, business logic, and JWT authentication middleware
+**ORM**: SQLModel - Database schema management and object-relational mapping
+**Database**: Neon Serverless PostgreSQL - Persistent data storage with automatic scaling
+**Authentication**: Better Auth with JWT tokens - User signup/signin and session management
+**Development Framework**: Claude Code + Spec-Kit Plus - Agentic development workflow
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Development Workflow
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+1. **Specification**: Write comprehensive feature specifications following the spec template
+2. **Planning**: Generate architectural plans using the plan template and /sp.plan command
+3. **Task Breakdown**: Create testable tasks using the tasks template and /sp.tasks command
+4. **Implementation**: Execute tasks using specialized agents (Auth, Frontend, Backend, DB)
+5. **Validation**: Ensure all changes are spec-driven, traceable, and meet acceptance criteria
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Security Standards
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- **Authentication**: JWT tokens required for all API access via Authorization: Bearer header
+- **Authorization**: Token verification handled in backend middleware using shared secret
+- **Data Isolation**: Task ownership validated on every read/write operation
+- **Error Handling**: Requests without valid JWT must return 401 Unauthorized
+- **Secrets Management**: Shared secrets configured via environment variables, never hardcoded
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices. Amendments require:
+- Documentation of changes and rationale
+- Approval through the /sp.constitution command
+- Migration plan for existing implementations
+- Version update following semantic versioning rules
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+All PRs and code reviews must verify compliance with these principles. Complexity must be justified and documented.
+
+**Version**: 1.0.0 | **Ratified**: 2026-01-24 | **Last Amended**: 2026-01-24
